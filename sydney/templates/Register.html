@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block head %}
+<style>
+     .container {
+    display: flex;
+    align-items: center;
+  }
+  .form {
+    flex: 1;
+    padding: 20px;
+  }
+  .image {
+    flex: 1;
+  }
+
+  body{
+      background-image:linear-gradient(to right,darkgrey,lightblue);
+  }
+</style>
+
+{% endblock %}
+
+{% block content %}
+<body>
+<div class="container">
+    <div style="border: 10px solid black;height:60%;border-radius:7px " class="form" >
+    <form style="line-height:1.3cm;">
+        <h2 style="text-decoration:whitesmoke">Register with us</h2>
+             <table>
+                 <tr><td>
+             <label for="fname">Your name*</label><br>
+             <input type="text"  id="fname" name="fnmae" placeholder="Your name"><br>
+                     </td>
+                     <td>
+        <label for="EMAIL">Email*</label><br>
+        <input type="EMAIL" id="EMAIL" name="EMAIL" placeholder="Your mail"><br>
+                     </td>
+             <tr><td>
+        <label for="Phone">Phone*</label><br>
+        <input type="text" id="Phone" name="Phone" placeholder="#Phone"><br>
+                 </td><td>
+         <label for="Course">Course*</label><br>
+        <input style="color: black" type="text" id="Course" name="Course" placeholder="What are you interested"><br>
+                </td></tr>
+                 <tr><td>
+           <label for="Password">Password*</label><br>
+        <input type="password" id="Password" name="Password" placeholder="#Your password"><br>
+        </td>
+                     <td>
+        <label for="Save"></label><br>
+         <input type="submit" value="Submit">
+                 </td></tr>
+
+             </table>
+         </form>
+    </div>
+    <div class="image">
+    {% load static %}
+     <img src="{% static 'code.jpg' %} " alt='My image'>
+    </div>
+</div>
+</body>
+{% endblock %}

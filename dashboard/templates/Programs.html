@@ -1,0 +1,31 @@
+{% extends 'outline.html' %}
+{% block content %}
+  <h2>Course Details</h2>
+    <form id="myForm">
+    <div id="formContainer">
+        <div class="form-row">
+             <label for="Name">Course*</label><br>
+            <input type="text" name="Course[]" placeholder="Course" required><br>
+
+        </div>
+    </div>
+    <button type="button" onclick="addRow()">Add Row</button>
+    <button type="button" onclick="saveFormData()">Save</button>
+            </form>
+  </div>
+<script>
+    function addRow() {
+        var formContainer = document.getElementById('formContainer');
+        var newRow = document.createElement('div');
+        newRow.className = 'form-row';
+        newRow.innerHTML = `
+            <label for="Course">Course*</label><br>
+            <input type="text" name="Course[]" placeholder="Course" required><br>
+
+        `;
+        formContainer.appendChild(newRow);
+
+    }
+</script>
+
+{% endblock %}
