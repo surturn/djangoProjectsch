@@ -25,6 +25,7 @@
 <div class="container">
     <div style="border: 10px solid black;height:60%;border-radius:7px " class="form" >
     <form method="post" action="/adduser" style="line-height:1.3cm;">
+        {% csrf_token %}
         <h2 style="text-decoration:whitesmoke">Register with us</h2>
              <table>
                  <tr><td>
@@ -47,6 +48,7 @@
         <input type="password" id="Password" name="password" placeholder="#Your password"><br>
         </td>
                      <td>
+                         {{ form.as_p }}
         <label for="Save"></label><br>
          <input type="submit" value="Submit">
                  </td></tr>
