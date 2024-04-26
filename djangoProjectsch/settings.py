@@ -78,12 +78,17 @@ WSGI_APPLICATION = 'djangoProjectsch.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'studentdb',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': 3306,
+=======
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'studentdb.sqlite3',
+>>>>>>> 60fc96f5085673b32a2bb709a0ca5311e2174ebc
     }
 }
 

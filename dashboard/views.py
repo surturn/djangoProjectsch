@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+<<<<<<< HEAD
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from dashboard.models import Student
 from .forms import TaskForm
+=======
+
+>>>>>>> 60fc96f5085673b32a2bb709a0ca5311e2174ebc
 
 def major(request):
     return HttpResponse("Hello, world. You're at the polls major.")
@@ -18,6 +22,7 @@ def Programs(request):
 def outline(request):
     template = loader.get_template('outline.html')
     return HttpResponse(template.render())
+<<<<<<< HEAD
 def save(request):
     if request.method == "POST":
         name = request.POST.get('name')
@@ -41,3 +46,8 @@ def students(request):
                 form = TaskForm()
     return render(request, 'outline.html', {'form': form})
     # Create your views here.
+=======
+
+
+# Create your views here.
+>>>>>>> 60fc96f5085673b32a2bb709a0ca5311e2174ebc

@@ -58,7 +58,11 @@
     </div>
   </nav>
 
+<<<<<<< HEAD
   <div class="container-fluid row col-6">
+=======
+  <div class="container-fluid">
+>>>>>>> 60fc96f5085673b32a2bb709a0ca5311e2174ebc
     <div class="row ">
       <div class="sidebar bg-dark">
         <h3 style="color:bisque">Dashboard</h3>
@@ -72,6 +76,7 @@
 
       <div class="content">
         {% block content %}
+<<<<<<< HEAD
         <div  id="formContainer">
             <h2>Student Admission Details</h2>
             <form id="myForm" method='POST'  action='/save'>
@@ -114,6 +119,21 @@
         </tbody>
       </table>
 
+=======
+            <h2>Student Admission Details</h2>
+            <form id="myForm">
+    <div method='POST'  action='/' id="formContainer">
+        <div class="form-row">
+             <label for="Name">Name*</label><br>
+            <input type="text" name="Name[]" placeholder="Name" required><br>
+             <label for="Email">Email*</label><br>
+            <input type="email" name="Email[]" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        </div>
+    </div>
+    <button type="button" onclick="addRow()">Add Row</button>
+    <button type="button" onclick="saveFormData()">Save</button>
+            </form>
+>>>>>>> 60fc96f5085673b32a2bb709a0ca5311e2174ebc
   </div>
 <script>
     function addRow() {
@@ -142,7 +162,10 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </div>
   </div>
+<<<<<<< HEAD
   </div>
   </div>
+=======
+>>>>>>> 60fc96f5085673b32a2bb709a0ca5311e2174ebc
 </body>
 </html>

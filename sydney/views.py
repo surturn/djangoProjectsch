@@ -2,12 +2,20 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
+<<<<<<< HEAD
+=======
+
+>>>>>>> 60fc96f5085673b32a2bb709a0ca5311e2174ebc
 from sydney.models import myuser
 from .forms import TaskForm
 
 
 def main(request):
     return HttpResponse("<h1>Sydney</h1>")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 60fc96f5085673b32a2bb709a0ca5311e2174ebc
 def base(request):
     template = loader.get_template('base.html')
     return HttpResponse(template.render())
