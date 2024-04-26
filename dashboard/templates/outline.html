@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emoblis dashboard</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Adjust sidebar styling */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 250px;
+      background-color: #f8f9fa;
+      padding: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+    /* Adjust main content area */
+    .content {
+      margin-left: 250px; /* Same width as sidebar */
+      padding: 20px;
+    }
+    /* Add responsiveness for smaller screens */
+    @media (max-width: 767.98px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+      }
+      .content {
+        margin-left: 0;
+      }
+      .form-row {
+        display: flex;
+        margin-bottom: 10px;
+    }
+    .form-row input {
+        margin-right: 10px;
+    }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+          <li class="nav-item">
+           <a class="nav-link" href={% url 'Admissions' %}>Admissions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href={% url 'Programs' %}>Programs</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid row col-6">
+    <div class="row ">
+      <div class="sidebar bg-dark">
+        <h3 style="color:bisque">Dashboard</h3>
+        <ul class="heading-text list-unstyled">
+
+          <li><a style="color:bisque" href={% url 'Admissions' %} >Admissions</a></li>
+          <li><a style="color:bisque" href={% url 'Programs' %}>Programs</a></li>
+        </ul>
+      </div>
+
+
+      <div class="content">
+        {% block content %}
+        <div  id="formContainer">
+            <h2>Student Admission Details</h2>
+            <form id="myForm" method='POST'  action='/save'>
+                {% csrf_token %}
+                <label for="Name">Name*</label><br>
+                <input type="text" name="Name[]" placeholder="Name" required><br>
+                <label for="Email">Email*</label><br>
+                <input type="email" name="Email[]" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+
+        <button type="button" onclick="addRow()">Add Student</button>
+        <button type="button" onclick="save()">Save</button>
+            </form>
+    <div style="border-right: 1px solid red;padding:10px;">
+      <u><h3 class="bg-dark text-white text-center p-1">Registered Students</h3></u>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Age</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for student in data %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.email }}</td>
+
+                <td>
+                     <a href="/editstudent/{{ student.id }}" type="button" class="btn btn-outline-success">Edit</a>
+                </td>
+                <td>
+                     <a href="/deletestudent/{{ student.id }}" type="button" class="btn btn-outline-danger">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+      </table>
+
+  </div>
+<script>
+    function addRow() {
+        var formContainer = document.getElementById('formContainer');
+        var newRow = document.createElement('div');
+        newRow.className = 'form-row';
+        newRow.innerHTML = `
+            <label for="Name">Name*</label><br>
+            <input type="text" name="Name[]" placeholder="Name" required><br>
+            <label for="Email">Email*</label><br>
+            <input type="email" name="Email[]" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br>
+        `;
+        formContainer.appendChild(newRow);
+
+    }
+</script>
+
+
+
+
+          {% endblock %}
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
+  </div>
+  </div>
+  </div>
+</body>
+</html>

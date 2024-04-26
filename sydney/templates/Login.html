@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block head %}
+<style>
+    .form{
+        border:1px darkgrey;
+        border-radius: 5px;
+        padding:10px;
+        background-image:{% load static %} url("{% static 'download.jpg' %}");
+        flex:1;
+    }
+    body{
+       background-image: linear-gradient(to left,dimgrey,gainsboro) ;
+    }
+
+</style>
+{% endblock %}
+{% block content %}
+<body>
+    <h1>Login</h1>
+<div>
+    <form class="form">
+     <label for="name" style="color:bisque">Name:</label><br>
+      <input type="text" id="name" name="name" placeholder="#Your name"><br>
+      <label for="email" style="color:bisque">Email:</label><br>
+      <input type="email" id="email" name="email" placeholder="#Your mail"><br>
+      <table>
+          <tr><td>
+           <label for="Password" style="color:bisque">Password*</label><br>
+        <input type="password" id="Password" name="Password" placeholder="#Your password"><br>
+             </td>
+              <td>
+        <label for="Save"></label><br>
+         <input type="submit" value="Login">
+                 </td></tr>
+      </table>
+
+    </form>
+    <p>
+        What is programming?<br>
+Programming refers to a technological process for telling a computer which tasks to perform in order to solve problems.You can think of programming as a collaboration between humans and computers, in which humans create instructions for a computer to follow (code) in a language computers can understand.
+Programming enables so many things in our lives. Here are some examples:
+When you browse a website to find information, contact a service provider, or make a purchase, programming allows you to interact with the site’s on-page elements, such as sign-up or purchase buttons, contact forms, and drop-down menus.
+The programming behind a mobile app can make it possible for you to order food, book a rideshare service, track your fitness, access media, and more with ease.
+Programming helps businesses operate more efficiently through different software for file storage and automation and video conferencing tools to connect people globally, among other things.
+Space exploration is made possible through programming.
+    </p>
+</div>
+</body>
+{% endblock %}
+<p>  </p>

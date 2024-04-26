@@ -1,0 +1,35 @@
+{% extends 'outline.html' %}
+{% block content %}
+  <h2>Course Details</h2>
+    <form id="myForm">
+    {% csrf_token %}
+    <div id="formContainer">
+        <div class="form-row">
+             <label for="Name">Course*</label><br>
+            <input type="text" name="Course[]" placeholder="Course" required><br>
+
+        </div>
+    </div>
+    <button type="button" onclick="addRow()">Add Row</button>
+    <button type="button" >Save</button>
+            </form>
+  <div>
+  <h3>Registered Courses</h3>
+  
+  </div>
+<script>
+    function addRow() {
+        let formContainer = document.getElementById('formContainer');
+        let  newRow = document.createElement('div');
+        newRow.className = 'form-row';
+        newRow.innerHTML = `
+            <label for="Course">Course*</label><br>
+            <input type="text" name="Course[]" placeholder="Course" required><br>
+
+        `;
+        formContainer.appendChild(newRow);
+
+    }
+</script>
+
+{% endblock %}
